@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Niyonkuru Valens Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="NVpk-removebg-preview.png" alt="Niyonkuru Valens" class="profile-image">
+                <div class="header-text">
+                    <h1>Niyonkuru Valens</h1>
+                    <p>Mid-Level Full-Stack Developer</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul id="top-navbar">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>
+                I am Niyonkuru Valens, a mid-level full-stack developer with over 4 years of experience building responsive web and mobile applications. 
+                I specialize in creating intuitive user experiences and building scalable backend systems.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section section-light">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <i class="fas fa-code"></i>
+                    <h3>Front-End</h3>
+                    <p>HTML, CSS, JavaScript, React</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-database"></i>
+                    <h3>Back-End</h3>
+                    <p>Spring Boot (Java), Node.js</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile</h3>
+                    <p>Flutter, React Native</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-cloud"></i>
+                    <h3>DevOps</h3>
+                    <p>Docker, AWS, CI/CD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <p>Explore my work on GitHub where I showcase several real-world projects demonstrating my development expertise.</p>
+            <a href="https://github.com/valensniyonkuru/intern_task1" target="_blank" class="btn">View My GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Niyonkuru Valens. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling and active link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#top-navbar a');
+
+        window.addEventListener('scroll', function() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 80; // Adjust for navbar height
+                if (pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(currentSection)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                const elementPosition = targetSection.offsetTop;
+                const headerOffset = 80; // Adjust for fixed navbar height
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
